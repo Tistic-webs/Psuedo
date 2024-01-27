@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 300%; /* Adjust based on the number of pages */
+        }
+
+        .page {
+            flex: 1;
+            min-width: 100vw;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <title>Horizontal Scroll</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page" id="page1">
+            <!-- Content for page 1 -->
+            <h1>Page 1</h1>
+            <p>This is the content for page 1.</p>
+        </div>
+        <div class="page" id="page2">
+            <!-- Content for page 2 -->
+            <h1>Page 2</h1>
+            <p>This is the content for page 2.</p>
+        </div>
+        <!-- Add more pages as needed -->
+      <div class="page" id="page3">
+        <h1>Page 3</h1>
+        <p>Hello World, this is an added page.</p>
+      </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".container");
+            let currentPage = 0;
+
+            window.addEventListener("wheel", function (event) {
+                currentPage += event.deltaY > 0 ? 1 : -1;
+                currentPage = Math.max(0, Math.min(currentPage, container.children.length - 1));
+
+                const scrollPosition = currentPage * 100;
+                container.style.transform = `translateX(-${scrollPosition}%)`;
+            });
+        });
+    </script>
+</body>
+</html>

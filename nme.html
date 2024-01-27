@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body id="body">
+  <button onclick="colo()">color</button>
+  <h1 id="cont">
+    Hello, World!
+  </h1>
+  <button onclick="tim()">date</button>
+  <div id="disc"></div>
+  <button onclick="dit2()">Setter</button>
+  <div id="mat"></div>
+  <button onclick="cake()">matgg</button>
+  <script>
+  let d = document.getElementById("cont");
+  function tim(){
+   let tm = new Date();
+    let y = tm.getFullYear().toString();
+    let mon = tm.getMonth().toString();
+    let dte = tm.getDate().toString();
+    let day = tm.getDay().toString();
+    let da;
+    switch(day){
+      case "0":
+      da = "Sunday";
+      break;
+      case "1":
+      da = "Monday";
+      break;
+      case "2":
+      da = "Tuesday";
+      break;
+      case "3":
+      da = "Wednesday";
+      break;
+      case "4":
+      da = "Thursday";
+      break;
+      case "5":
+      da = "Friday";
+      break;
+      case "6":
+      da = "Saturday";
+    }
+    d.innerHTML = y + ", " + mon + ", " + dte + ", " + da;
+  }
+  function dit2(){
+    let ed = document.getElementById("disc");
+    let dta = new Date(2045,3,20,5,30,05);
+    let hh = dta.getHours();
+    let mm = dta.getMinutes();
+    let ss = dta.getSeconds();
+    ed.innerHTML = hh +" : "+ mm +" : "+ ss ;
+  }
+  function cake(){
+    let x, y, t, z;
+    x = 50.9;
+    y = 60.8;
+    z = Math.ceil(x+y);
+    t = Math.floor(Math.random() * 255);
+    let work = document.getElementById("mat");
+    work.innerHTML = t;
+  }
+  function colo(){
+        let w, x, y, z;
+    w = Math.floor(Math.random() * 256);
+    x = Math.floor(Math.random() * 256);
+    y = Math.floor(Math.random() * 256);
+    z = Math.random();
+    document.body.style.background = `rgba(${w},${x},${y},${z})`;
+    const lyp = ["ace.jpeg","aest.jpeg","bako.jpeg","basketball.jpeg","boib.jpeg","celft.jpeg","dance.jpeg","dreams.jpeg",
+    "enit.jpeg","est.jpeg","four.jpeg"];
+    let i = Math.floor(Math.random() * 11);
+    let g = lyp[i];
+    document.body.style.background += `, url(${g})`;
+    document.body.style.backgroundRepeat = `no-repeat`;
+    document.body.style.backgroundSize = `cover`;
+
+  }
+  </script>
+</body>
+</html>
